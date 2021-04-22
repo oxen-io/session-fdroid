@@ -2,6 +2,6 @@
   "commandLine": [
     "/home/jubb/.local/bin/fdroid update"
   ],
-  "startTimestamp": 1619016092000,
+  "startTimestamp": 1619016524000,
   "subcommand": "update"
 }
