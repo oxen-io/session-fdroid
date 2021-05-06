@@ -1,1 +1,1 @@
-{"antiFeatures":{},"commandLine":["/home/jubb/.local/bin/fdroid update"],"disabled":[],"endTimestamp":1619052530369,"failedBuilds":{"network.loki.messenger":["1"]},"noPackages":["network.loki.messenger"],"startTimestamp":1619016524000,"subcommand":"update"}
+{"antiFeatures":{},"commandLine":["/home/jubb/.local/bin/fdroid update"],"disabled":[],"endTimestamp":1620281634067,"failedBuilds":{"network.loki.messenger":["1"]},"noPackages":["network.loki.messenger"],"startTimestamp":1620245627000,"subcommand":"update"}
