@@ -3,7 +3,7 @@
 <b>Send Messages, Not Metadata.</b>
 <br>
 
-###Session repo
+## Session repo
 [Session android](https://github.com/oxen-io/session-android)
-###Session F-Droid
+## Session F-Droid
 [https://fdroid.getsession.org/](https://fdroid.getsession.org/)
