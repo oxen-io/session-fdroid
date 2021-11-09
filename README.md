@@ -3,7 +3,9 @@
 <b>Send Messages, Not Metadata.</b>
 <br>
 
-## Session repo
+This repository contains the latest Session Android APKs, which are served via our official F-Droid repository [here](https://fdroid.getsession.org/) 
+
+## Session Android Repository
 [Session android](https://github.com/oxen-io/session-android)
-## Session F-Droid
+## Session F-Droid Repository
 [https://fdroid.getsession.org/](https://fdroid.getsession.org/)
