@@ -1,942 +1,313 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Official repository for Session F-Droid</title>
-  <style type="text/css">
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    h2 {
-      margin: .8rem 0 .4rem .6rem;
-    }
-	.paddedclass {
-	padding-top: 40px;
-	}
-	.QRclass {
-	padding-left: 20px;
-	}
-	
-    #des {
-      display: block;
-      margin: 0 .6rem;
-    }
-    .wrap {
-      background: #efefef;
-      margin: 1rem .6rem;
-      padding: .8rem;
-      display: flex;
-      flex-direction: column;
-    }
-    h3 {
-      margin-bottom: .8rem;
-    }
-    b {
-      font-weight: 500;
-    }
-    code {
-      height: 1.5rem;
-      line-height: 1.5rem;
-      line-break: anywhere;
-    }
-    #direct{
-      display: block;
-      text-decoration: none;
-      text-align: center;
-      color: #000;
-      background: #00f782;
-      width: 8rem;
-      border-radius: 100rem;
-      margin: .4rem auto;
-      padding: .3rem;
-    }
-    svg{
-      aspect-ratio: 1;
-      width: 12rem;
-      border: .4rem solid #000;
-    }
-    @media screen and (min-width:600px){
-      .wrap{
-        flex-direction: row;
-      }
-    }
-  </style>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+
+    <title>Official repository for Session F-Droid</title>
+    <meta content="Official repository for Session F-Droid" name="title"/>
+    <meta content="Official repository for Session F-Droid" property="og:title"/>
+    <meta content="Official repository for Session F-Droid" property="twitter:title"/>
+
+    <meta content="The Official Session F-Droid repo for Session Android, add it to your F-Droid client to receive Session F-Droid updates directly to your device."
+          name="description"/>
+    <meta content="The Official Session F-Droid repo for Session Android, add it to your F-Droid client to receive Session F-Droid updates directly to your device."
+          property="og:description"/>
+    <meta content="The Official Session F-Droid repo for Session Android, add it to your F-Droid client to receive Session F-Droid updates directly to your device."
+          property="twitter:description"/>
+
+    <meta content="website" property="og:type"/>
+
+    <meta content="https://fdroid.getsession.org/" property="og:url"/>
+    <meta content="https://fdroid.getsession.org/" property="twitter:url"/>
+
+    <meta content="summary_large_image" property="twitter:card"/>
+
+    <meta content="https://getsession.org/assets/images/logo-black.png" property="og:image">
+    <meta content="https://getsession.org/assets/images/logo-black.png" property="twitter:image"/>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: PublicSans, sans-serif;
+            font-size: 1.25rem;
+            background-color: rgb(51, 49, 50);
+            color: rgb(255, 255, 255);
+            line-height: 1.5;
+        }
+
+        .description {
+            display: block;
+            margin: 0 .6rem;
+        }
+
+
+        @media screen and (min-width: 1024px) {
+            .description {
+                width: 60%;
+            }
+        }
+
+        .wrap {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+
+        .wrap-content {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: none;
+            grid-gap: 12px;
+            margin-top: 24px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media screen and (min-width: 1024px) {
+            .wrap-content {
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 32px;
+                grid-template-rows: none;
+            }
+        }
+
+        .wrap-content > div {
+            align-items: center;
+            justify-self: center;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 2rem;
+            background-color: rgb(0, 247, 130);
+            color: rgb(51, 49, 50);
+            border-radius: 24px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            .wrap-content > div {
+                width: 80%;
+            }
+        }
+
+
+        .wrap-content > div:nth-child(1) {
+            background-color: rgb(51, 49, 50);
+            color: rgb(255, 255, 255);
+            align-items: start;
+            text-align: start;
+        }
+
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.25;
+            margin-bottom: 0.75rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1;
+        }
+
+        @media screen and (min-width: 1024px) {
+            h1 {
+                font-size: 4rem;
+            }
+
+            h2 {
+                font-size: 3rem;
+            }
+        }
+
+        b {
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        blockquote {
+            line-break: anywhere;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 16px;
+        }
+
+        .button {
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            color: #000;
+            background: #00f782;
+            width: max-content;
+            border-radius: 100rem;
+            margin: .4rem auto;
+            padding: 1rem 1.5rem;
+        }
+
+        .qr-code {
+            align-self: center;
+            aspect-ratio: 1;
+            width: 100%;
+            max-width: 24rem;
+            border: .4rem solid #000;
+            border-radius: 24px;
+        }
+
+
+        nav {
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+        }
+
+
+        @media screen and (min-width: 1024px) {
+            nav {
+                padding: 12px 169px;
+                justify-content: space-between;
+            }
+        }
+
+
+        .nav-links-container {
+            display: none;
+            flex-direction: row;
+            gap: 16px;
+            align-items: center;
+        }
+
+        @media screen and (min-width: 1024px) {
+            .nav-links-container {
+                display: flex;
+            }
+        }
+
+        nav a {
+            color: rgb(51, 49, 50);
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .font-medium {
+            font-weight: 600;
+        }
+
+        a {
+            color: rgb(0, 247, 130);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .instructions {
+            display: inline-flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+
+        @media screen and (min-width: 1024px) {
+            .instructions {
+                flex-direction: row;
+            }
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .join-community {
+            height: 50vh;
+        }
+
+        @media screen and (min-width: 1024px) {
+            .join-community {
+                height: auto;
+            }
+        }
+
+    </style>
 </head>
 <body>
-  <h2>Session F-Droid</h2>
-  <p id="des">
-    This is the Official Session F-Droid repo for Session Android, add it to your F-Droid client to receive Session F-Droid updates directly to your device. You will need to have <a href="https://www.f-droid.org/en/">F-Droid</a> installed before proceeding with the following steps.
-  </p>
-  <div class="wrap">
-    <div>
-      <h3>Add Link</h3>
-      <b>Repository address: </b>
-      <br />
-      <code>https://fdroid.getsession.org/fdroid/repo</code>
-      <br />
-      <b>Fingerprint: </b>
-      <br />
-      <code>DB0E5297EB65CC22D6BD93C869943BDCFCB6A07DC69A48A0DD8C7BA698EC04E6</code>
-      <br />
-      <br />
-      <p>
-		To add this repository manually <br>
-	  
-        Open F-Droid > Settings > Repository > <b>+</b> button and add new repo, then copy paste the repository address and fingerprint
-       <br /><b>
-      </p>
-	  
-	  <div class="paddedclass">
-	  	  <a id="direct" href="https://fdroid.getsession.org/fdroid/repo?fingerprint=DB0E5297EB65CC22D6BD93C869943BDCFCB6A07DC69A48A0DD8C7BA698EC04E6"><b>Deep Link</b></a>
-		  
-		</div>
+<nav>
+    <a href="https://getsession.org" referrerpolicy="no-referrer" target="_blank">
+        <img alt="Session Logo" class="logo"
+             src="https://getsession.org/assets/images/logo.png"/>
+    </a>
+    <div class="nav-links-container">
+        <a href="https://github.com/oxen-io/session-fdroid" referrerpolicy="no-referrer" target="_blank">
+            Github
+        </a>
+        <a href="https://getsession.org/blog" referrerpolicy="no-referrer" target="_blank">Blog</a>
+        <a href="https://donorbox.org/optf-donation" referrerpolicy="no-referrer" target="_blank">Donate</a>
+        <a class="button" href="https://getsession.org/download" referrerpolicy="no-referrer"
+           target="_blank">Download</a>
     </div>
-    <br /><br />
-    <div class="QRclass">
-      <h3>Scan QR Code</h3>
-      <svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
-        <rect x="28.444445" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="355.55557" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="469.33334" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="28.444445" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="42.666668" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="42.666668" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="42.666668" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="42.666668" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="42.666668" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="42.666668" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="42.666668" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="42.666668" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="42.666668" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="42.666668" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="42.666668" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="42.666668" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="42.666668" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="42.666668" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="355.55557" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="56.88889" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="71.111115" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="85.333336" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="99.55556" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="113.77778" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="128.0" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="128.0" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="128.0" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="128.0" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="128.0" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="128.0" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="128.0" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="128.0" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="128.0" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="128.0" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="128.0" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="128.0" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="128.0" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="213.33333" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="270.22223" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="355.55557" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="142.22223" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="128.0" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="213.33333" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="355.55557" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="469.33334" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="156.44444" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="213.33333" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="170.66667" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="128.0" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="213.33333" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="355.55557" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="184.88889" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="270.22223" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="355.55557" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="199.11111" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="128.0" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="355.55557" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="213.33333" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="213.33333" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="270.22223" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="227.55556" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="469.33334" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="241.77779" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="128.0" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="213.33333" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="270.22223" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="256.0" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="128.0" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="355.55557" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="469.33334" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="270.22223" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="270.22223" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="284.44446" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="128.0" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="469.33334" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="298.66666" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="312.8889" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="213.33333" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="270.22223" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="327.1111" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="128.0" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="341.33334" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="469.33334" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="355.55557" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="213.33333" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="270.22223" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="369.77777" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="213.33333" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="270.22223" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="355.55557" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="469.33334" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="384.0" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="128.0" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="213.33333" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="270.22223" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="398.22223" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="128.0" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="213.33333" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="270.22223" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="469.33334" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="412.44446" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="128.0" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="355.55557" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="469.33334" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="426.66666" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="128.0" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="270.22223" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="469.33334" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="440.8889" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="213.33333" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="270.22223" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="455.1111" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="128.0" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="469.33334" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="270.22223" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="483.55557" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="355.55557" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="497.77777" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="469.33334" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="512.0" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="355.55557" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="526.2222" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="355.55557" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="540.44446" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="241.77779" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="355.55557" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="597.3333" y="554.6667" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="312.8889" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="426.66666" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="455.1111" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="469.33334" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="540.44446" y="568.8889" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="170.66667" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="327.1111" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="469.33334" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="483.55557" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="497.77777" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="512.0" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="583.11115" y="583.11115" width="14.222222" height="14.222222" />
-        <rect x="28.444445" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="42.666668" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="56.88889" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="71.111115" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="85.333336" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="99.55556" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="113.77778" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="142.22223" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="156.44444" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="184.88889" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="199.11111" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="227.55556" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="256.0" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="270.22223" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="284.44446" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="298.66666" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="341.33334" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="369.77777" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="384.0" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="398.22223" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="412.44446" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="440.8889" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="526.2222" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="554.6667" y="597.3333" width="14.222222" height="14.222222" />
-        <rect x="568.8889" y="597.3333" width="14.222222" height="14.222222" />
-      </svg>
-      <br />
-      <br />
-      <p>Scan the QR code and open with F-Droid to add the repo.</p>
+</nav>
+<div class="wrap">
+    <h1>Session F-Droid Repository</h1>
+    <p class="description">
+        This is the Official Session F-Droid repo for Session Android, add it to your F-Droid client to receive Session
+        F-Droid updates directly to your device. You will need to have <a href="https://www.f-droid.org/en/"
+                                                                          referrerpolicy="no-referrer" target="_blank">F-Droid</a>
+        installed before proceeding with the following steps.
+    </p>
+    <div class="wrap-content">
+
+        <div>
+            <h2>Add Manually</h2>
+            <h3>Instructions</h3>
+            <div>
+                <span class="instructions">Open
+                <blockquote>FDroid > Settings > Repositories > <span
+                        style="font-weight: 800; background-color: #BEE248; padding: 5px 10px; border-radius: 100px">+</span> button</blockquote></span>
+                then copy & paste the repository URL and fingerprint. This will add the Session repository, which means
+                the app will now come up on the store.
+            </div>
+            <h3>Repository URL </h3>
+            <a href="https://fdroid.getsession.org/fdroid/repo" referrerpolicy="no-referrer"
+               style="line-break: anywhere"
+               target="_blank">https://fdroid.getsession.org/fdroid/repo</a>
+            <h3>Fingerprint </h3>
+            <blockquote>DB 0E 52 97 EB 65 CC 22 D6 BD 93 C8 69 94 3B DC FC B6 A0 7D C6 9A 48 A0 DD 8C 7B A6 98 EC 04
+                E6
+            </blockquote>
+            <a class="button"
+               href="https://fdroid.getsession.org/fdroid/repo?fingerprint=DB0E5297EB65CC22D6BD93C869943BDCFCB6A07DC69A48A0DD8C7BA698EC04E6">
+                Add to F-Droid
+            </a>
+        </div>
+        <div>
+            <h2>Scan QR Code</h2>
+            <img alt="QR Code" class="qr-code" src="/session-fdroid.jpg"/>
+            <p>Scan the QR code and open with F-Droid to add the repo.</p>
+        </div>
     </div>
-  </div>
-  <br />
+</div>
+<div class="wrap join-community">
+    <span class="font-medium">Join the movement to keep the internet private!</span>
+    <span>Chat with like-minded individuals in the <a href="https://getsession.org/community"
+                                                      referrerpolicy="no-referrer" target="_blank">Session Community</a>.</span>
+</div>
 </body>
 </html>
