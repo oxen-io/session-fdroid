@@ -30,6 +30,195 @@
     <link rel="apple-touch-icon" sizes="180x180" href="https:///apple-touch-icon.png">
 
     <style>
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-Thin.ttf')
+            format('truetype');
+            font-weight: 100;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-ExtraLight.ttf')
+            format('truetype');
+            font-weight: 200;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-Light.ttf')
+            format('truetype');
+            font-weight: 300;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-Regular.ttf')
+            format('truetype');
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-Medium.ttf')
+            format('truetype');
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-SemiBold.ttf')
+            format('truetype');
+            font-weight: 600;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-Bold.ttf')
+            format('truetype');
+            font-weight: 700;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-ExtraBold.ttf')
+            format('truetype');
+            font-weight: 800;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-Black.ttf')
+            format('truetype');
+            font-weight: 900;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-Italic-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-ThinItalic.ttf')
+            format('truetype');
+            font-weight: 100;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-Italic-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-ExtraLightItalic.ttf')
+            format('truetype');
+            font-weight: 200;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-Italic-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-LightItalic.ttf')
+            format('truetype');
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-Italic-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-Italic.ttf')
+            format('truetype');
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-Italic-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-MediumItalic.ttf')
+            format('truetype');
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-Italic-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-SemiBoldItalic.ttf')
+            format('truetype');
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-Italic-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-BoldItalic.ttf')
+            format('truetype');
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-Italic-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-ExtraBoldItalic.ttf')
+            format('truetype');
+            font-weight: 800;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: PublicSans;
+            font-display: swap;
+            src: url('/page/fonts/PublicSans/PublicSans-Italic-VariableFont_wght.ttf')
+            format('truetype'),
+            url('/page/fonts/PublicSans/static/PublicSans-BlackItalic.ttf')
+            format('truetype');
+            font-weight: 900;
+            font-style: italic;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -302,7 +491,7 @@
         </div>
         <div>
             <h2>Scan QR Code</h2>
-            <img alt="QR Code" class="qr-code" src="/session-fdroid.jpg"/>
+            <img alt="QR Code" class="qr-code" src="/page/session-fdroid.jpg"/>
             <p>Scan the QR code and open with F-Droid to add the repo.</p>
         </div>
     </div>
