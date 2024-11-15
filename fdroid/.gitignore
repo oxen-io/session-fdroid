@@ -1,0 +1,7 @@
+# These files are actually required by the build process but we'll pop them in the directory
+# during the build process, by using the template files ending in .tpl
+config.yml
+metadata/*.yml
+
+# Temporary files
+tmp

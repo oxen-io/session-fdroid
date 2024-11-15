@@ -1,1 +1,7 @@
 fdroid/repo/status/
+.DS_Store
+
+# This file is actually required by the build process but we'll pop it in the directory
+# during the build process. This way it won't be tracked in the repo.
+fdroid/config.yml
+fdroid/metadata/*.yml
